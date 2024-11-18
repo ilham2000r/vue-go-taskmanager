@@ -16,11 +16,11 @@ func SetupRoutes(app *fiber.App) {
 	taskController := controllers.NewTaskController()
 	api := app.Group("/api", middleware.AuthMiddleware())
 
-	api.Post("/tasks", taskController.CreateTask)
-	api.Put("/tasks/:id", taskController.UpdateTask)
-	api.Patch("/tasks/:id/status", taskController.UpdateStatus)
-	api.Delete("/tasks/:id", taskController.DeleteTask)
-	api.Get("/tasks", taskController.ListTasks)
-	api.Get("/tasks/:id", taskController.GetTaskById)
-	api.Post("/tasks/search", taskController.SearchByFilter)
+	api.Post("/tasks", taskController.CreateTask)               // create task
+	api.Put("/tasks/:id", taskController.UpdateTask)            // Update task (name,description, due date, priority)
+	api.Patch("/tasks/:id/status", taskController.UpdateStatus) // checked status (finished, in process)
+	api.Delete("/tasks/:id", taskController.DeleteTask)         // delete task
+	api.Get("/tasks", taskController.ListTasks)                 // list all task
+	api.Get("/tasks/:id", taskController.GetTaskById)           // list task by id
+	api.Post("/tasks/search", taskController.SearchByFilter)    // search task (status, priority)
 }

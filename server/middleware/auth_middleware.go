@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/ilham2000r/vue-go-taskmanagment/config"
 	"strings"
 )
 
 func AuthMiddleware() fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		jwtSecretKey := "SecretKey"
 		authHeader := c.Get("Authorization")
 		// check header (Bearer)
 		if authHeader == "" {
@@ -20,7 +20,7 @@ func AuthMiddleware() fiber.Handler {
 		tokenString := strings.Replace(authHeader, "Bearer ", "", 1)
 		// verify token
 		token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-			return []byte(jwtSecretKey), nil
+			return []byte(config.JwtSecretKey), nil
 		})
 		if err != nil || !token.Valid {
 			return c.Status(401).JSON(fiber.Map{

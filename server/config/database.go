@@ -11,20 +11,12 @@ import (
 	"time"
 )
 
-const (
-	host     = "localhost"
-	port     = 5432
-	username = "user"
-	password = "password123456"
-	dbname   = "taskManagement"
-)
-
 var DB *gorm.DB
 
 func ConnectDB() {
 	var err error
 	dsn := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable",
-		host, port, username, password, dbname)
+		Host, Port, Username, Password, Dbname)
 
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags),

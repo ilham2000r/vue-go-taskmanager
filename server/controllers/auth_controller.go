@@ -1,12 +1,14 @@
 package controllers
 
 import (
+	"log"
+	"time"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/ilham2000r/vue-go-taskmanagment/config"
 	"github.com/ilham2000r/vue-go-taskmanagment/models"
 	"golang.org/x/crypto/bcrypt"
-	"time"
 )
 
 type AuthController struct{}
@@ -14,6 +16,7 @@ type AuthController struct{}
 func (ac *AuthController) CreateUser(c *fiber.Ctx) error {
 	user := new(models.User)
 	if err := c.BodyParser(user); err != nil {
+		log.Printf("Failed to parse request body: %v", err)
 		return c.Status(400).JSON(fiber.Map{"error": "Invalid input"})
 	}
 

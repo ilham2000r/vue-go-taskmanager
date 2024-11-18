@@ -22,5 +22,5 @@ func main() {
 	routes.SetupRoutes(app)
 
 	// Start server
-	log.Fatal(app.Listen("localhost:8000"))
+	log.Fatal(app.Listen(config.ServerAddress))
 }
