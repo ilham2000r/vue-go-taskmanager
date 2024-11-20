@@ -63,7 +63,7 @@ It includes features to add, delete, and edit tasks, making it easier to organiz
 
 ```bash
 
-git clone <your-repository-url>
+git clone https://github.com/ilham2000r/vue-go-taskmanager.git
 
 ```
 
