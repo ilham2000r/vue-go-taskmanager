@@ -156,51 +156,28 @@ docker-compose up --build
 VUE-GO-TASKMANAGEMENT/
 
 ├── client/
-
 │ ├── public/
-
 │ ├── src/
-
 │ │ ├── api/
-
 │ │ ├── components/
-
 │ │ ├── layout/
-
 │ │ ├── router/
-
 │ │ ├── stores/
-
 │ │ ├── views/
-
 │ │ ├── App.vue
-
 │ │ ├── main.js
-
 │ └── Dockerfile
-
 │
-
 ├── server/
-
 │ ├── config/
-
 │ ├── controllers/
-
 │ ├── middleware/
-
 │ ├── models/
-
 │ ├── routes/
-
 │ ├── main.go
-
 │ └── Dockerfile
-
 │
-
 ├── docker-compose.yml
-
 ├── README.md
 
 ```
