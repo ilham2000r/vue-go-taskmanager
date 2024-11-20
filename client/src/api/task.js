@@ -30,8 +30,4 @@ export const taskAPI = {
       { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
     )
   },
-  // searchTasks: (searchParams) => {
-  //   return api.get('/api/tasks/search', 
-  //       { params: searchParams })
-  // }
 }

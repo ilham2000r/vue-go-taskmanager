@@ -105,17 +105,5 @@ export const useTaskStore = defineStore('task', {
       }
     },
     
-    // async searchTasks(status, priority) {
-    //   this.loading = true
-    //   try {
-    //     const response = await taskAPI.searchTasks(status, priority)
-    //     this.tasks = response.data
-    //   } catch (error) {
-    //     this.error = error.response?.data?.message || 'Failed to search tasks'
-    //     throw error
-    //   } finally {
-    //     this.loading = false
-    //   }
-    // }
   }
 })

@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
 import IndexView from '../views/IndexView.vue'
 import DetailTask from '@/views/DetailTask.vue'
 import Login from '@/views/Login.vue'
@@ -38,39 +37,25 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // ตรวจสอบว่ามี hash (fragment) หรือไม่
     if (savedPosition) {
-      return savedPosition; // ถ้าผู้ใช้กดปุ่ม back/forward ให้เลื่อนไปตำแหน่งเดิม
+      return savedPosition; 
     } else if (to.hash) {
       return {
-        el: to.hash, // เลื่อนไปยังตำแหน่งที่มี id ตรงกับ hash
-        behavior: 'smooth' // เลื่อนแบบนุ่มนวล
+        el: to.hash, 
+        behavior: 'smooth' 
       };
     } else {
-      return { top: 0 }; // ถ้าไม่มี hash ให้เลื่อนไปบนสุดของหน้า
+      return { top: 0 }; 
     }
   },
-  // Navigation Guard
 })
 
-// router.beforeEach((to, from, next) => {
-//   const authStore = useAuthStore()
-  
-//   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-//     next('/login')
-//   } else {
-//     next()
-//   }
-// })
-
+// Navigation Guard
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem('token'); // ตรวจสอบว่ามี token หรือไม่
-
+  const isAuthenticated = !!localStorage.getItem('token'); 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    // หาก route ต้องการ auth และไม่มี token
-    next({ name: 'protected' }); // ส่งผู้ใช้ไปหน้า login
+    next({ name: 'protected' }); 
   } else {
-    // อนุญาตให้เข้าถึง
     next();
   }
 });

@@ -18,7 +18,7 @@ const handleSubmit = async () => {
             toast('Please fill in all required fields.')
             return;
         }
-        // console.log('Form Data:', formData.value) // ดูค่าที่จะส่งไป
+        // console.log('Form Data:', formData.value)
         console.log(formData.value)
         console.log('Before creating task:', taskStore.tasks)
         await taskStore.createTask(formData.value)
