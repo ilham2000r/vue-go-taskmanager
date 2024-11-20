@@ -1,6 +1,6 @@
 module github.com/ilham2000r/vue-go-taskmanagment
 
-go 1.23.3
+go 1.22
 
 require (
 	github.com/andybalholm/brotli v1.1.1 // indirect

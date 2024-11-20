@@ -1,19 +1,35 @@
 package config
 
+import (
+	"os"
+)
+
 // database Config
+var (
+	Host     = getEnvOrDefault("DB_HOST", "postgres")
+	Username = getEnvOrDefault("DB_USER", "user")
+	Password = getEnvOrDefault("DB_PASSWORD", "password123456")
+	Dbname   = getEnvOrDefault("DB_NAME", "taskManagement")
+)
+
 const (
-	Host     = "localhost"
-	Port     = 5432
-	Username = "user"
-	Password = "password123456"
-	Dbname   = "taskManagement"
+	Port = 5432
 )
 
 // main  config
 const (
-	ServerAddress = "localhost:8000" // Server Port for Local Development
+	ServerAddress = "0.0.0.0:8000"
 )
 
-const (
-	JwtSecretKey = "SecretKey"
+// secret key
+var (
+	JwtSecretKey = getEnvOrDefault("JWT_SECRET", "SecretKey")
 )
+
+// get environment variable function
+func getEnvOrDefault(key, defaultValue string) string {
+	if value := os.Getenv(key); value != "" {
+		return value
+	}
+	return defaultValue
+}
