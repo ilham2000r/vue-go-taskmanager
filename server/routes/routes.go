@@ -22,5 +22,4 @@ func SetupRoutes(app *fiber.App) {
 	api.Delete("/tasks/:id", taskController.DeleteTask)         // delete task
 	api.Get("/tasks", taskController.ListTasks)                 // list all task
 	api.Get("/tasks/:id", taskController.GetTaskById)           // list task by id
-	api.Post("/tasks/search", taskController.SearchByFilter)    // search task (status, priority)
 }

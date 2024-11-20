@@ -1,7 +1,7 @@
 {
   "name": "client",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,10 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.12"
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
+    "lucide-vue-next": "^0.460.0",
+    "pinia": "^2.2.6",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5",
+    "vue3-toastify": "^0.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
-    "vite": "^5.4.10"
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "vite": "^5.4.10",
+    "vite-plugin-vue-devtools": "^7.5.4"
   }
 }
