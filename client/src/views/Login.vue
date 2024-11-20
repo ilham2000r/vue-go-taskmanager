@@ -25,6 +25,7 @@ const handleLogin = async () => {
         toast('Welcome back')
         console.log('Login Success');
     } catch (err) {
+        toast("Username or Password invalid")
         console.log(err);
     }
 }
