@@ -31,7 +31,7 @@ const router = createRouter({
       component: Register,
     },
     { 
-      path: '/protected', 
+      path: '/protected',
       name: 'protected', 
       component: Protected,
     },
@@ -59,8 +59,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-
-
 
 export default router

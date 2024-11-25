@@ -12,11 +12,7 @@ export const useAuthStore = defineStore('auth', {
   actions: {
     async register(username, password) {
       try {
-        const response = await authAPI.register(username, password)
-        this.token = response.data.token
-        this.user = response.data.user
-        this.isAuthenticated = true
-        localStorage.setItem('token', this.token)
+        await authAPI.register(username, password)
       } catch (error) {
         this.error = error.response?.data?.message || 'Registration failed'
         throw error

@@ -22,7 +22,6 @@ const dayLeft = ref(0);
 const fetchTaskDetail = async () => {
   try {
     const taskId = route.params.id; 
-    // console.log('Fetched taskId:', taskId);
     await taskStore.listTaskById(taskId); 
     taskDetail.value = taskStore.currentTask;
     console.log('taskStore.currentTask:', taskStore.currentTask);
@@ -40,11 +39,6 @@ const fetchTaskDetail = async () => {
     const date = new Date(taskDetail.value.dueDate); 
     taskDetail.value.dueDate = date.toISOString().split('T')[0];
     }
-
-    console.log("taskDetail.value",taskDetail.value.taskStatus);
-    
-    
-    
   } catch (err) {
     console.log('Error fetching task detail:', err);
   }
@@ -70,7 +64,7 @@ const handleUpdate = async () =>{
     }
 }
 
-const updateStatus = async (taskId, currentStatus) => {
+const updateStatus = async (taskId) => {
     try {
         console.log(taskDetail.value.taskStatus);
         

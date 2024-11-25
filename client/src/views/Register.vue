@@ -3,8 +3,10 @@ import { ref } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import { RouterLink, useRouter } from 'vue-router';
 import { toast } from 'vue3-toastify'
+
 const authStore = useAuthStore()
 const router = useRouter()
+
 const formUser = ref({
     username: '',
     password: ''

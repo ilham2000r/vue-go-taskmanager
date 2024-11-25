@@ -8,10 +8,8 @@ import (
 	"time"
 )
 
-// TaskController struct
 type TaskController struct{}
 
-// instance of TaskController
 func NewTaskController() *TaskController {
 	return &TaskController{}
 }
@@ -159,6 +157,7 @@ func (tc *TaskController) DeleteTask(c *fiber.Ctx) error {
 	}
 
 	config.DB.Delete(&task)
+
 	return c.SendStatus(204)
 }
 

@@ -9,18 +9,6 @@ export const useTaskStore = defineStore('task', {
     error: null
   }),
   
-  getters: {
-    getTasks: (state) => state.tasks,
-    getTaskById: (state) => (id) => state.tasks.find(task => task.id === id),
-    getFilteredTasks: (state) => (status, priority) => {
-      return state.tasks.filter(task => {
-        const statusMatch = !status || task.status === status
-        const priorityMatch = !priority || task.priority === priority
-        return statusMatch && priorityMatch
-      })
-    }
-  },
-  
   actions: {
     async createTask(taskData) {
       this.loading = true
@@ -56,7 +44,7 @@ export const useTaskStore = defineStore('task', {
     async updateStatus(taskData) {
       try {
         console.log('API call with taskData:', taskData);
-        const response = await taskAPI.updateStatus(taskData)
+        await taskAPI.updateStatus(taskData)
         const index = this.tasks.findIndex(task => task.ID === taskData.ID)
         if (index !== -1) {
           this.tasks[index].status = taskData.status
@@ -104,6 +92,6 @@ export const useTaskStore = defineStore('task', {
         this.loading = false
       }
     },
-    
+
   }
 })
